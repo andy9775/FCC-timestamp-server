@@ -14,12 +14,12 @@ app.get(/(January|February|March|April|May|June?|July|August|September|October|N
     .send(buildResponse(undefined, decodeURIComponent(req.path.replace('/', ''))));
 });
 
-app.listen(8080, function(err) {
+app.listen(process.env.PORT || 808, function(err) {
   if (err) {
     console.log('Error occurred starting the server');
     console.log(err);
     process.exit(1);
   }
 
-  console.log('Starting server on port: ', 8080);
+  console.log('Starting server on port: ', process.env.PORT || 8080);
 });
