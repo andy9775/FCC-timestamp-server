@@ -14,7 +14,12 @@ app.get(/(January|February|March|April|May|June?|July|August|September|October|N
     .send(buildResponse(undefined, decodeURIComponent(req.path.replace('/', ''))));
 });
 
-app.listen(process.env.PORT || 808, function(err) {
+// redirect on regular page fetch
+app.get('/',function(req, res){
+  res.redirect('https://github.com/andy9775/FCC-timestamp-server');
+});
+
+app.listen(process.env.PORT || 8080, function(err) {
   if (err) {
     console.log('Error occurred starting the server');
     console.log(err);
